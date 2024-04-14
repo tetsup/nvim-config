@@ -1,5 +1,23 @@
 return {
   'editorconfig/editorconfig-vim',
+  {
+    'neoclide/coc.nvim',
+    branch = "release",
+    event = "InsertEnter",
+    config = function()
+      vim.g.coc_global_extensions = {
+        'coc-json',
+        'coc-tsserver',
+        'coc-css',
+        'coc-yaml',
+        'coc-sh',
+        'coc-prettier',
+        'coc-clangd',
+        'coc-jedi',
+        'coc-diagnostic',
+      }
+    end
+  },
   'nvim-tree/nvim-web-devicons',
   {
     'nvim-lualine/lualine.nvim',
