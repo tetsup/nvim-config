@@ -2,23 +2,14 @@ return {
   'editorconfig/editorconfig-vim',
   {
     'neoclide/coc.nvim',
-    branch = "release",
-    event = "InsertEnter",
+    branch = 'release',
+    event = 'InsertEnter',
     config = function()
-      vim.g.coc_global_extensions = {
-        'coc-json',
-        'coc-tsserver',
-        'coc-css',
-        'coc-yaml',
-        'coc-sh',
-        'coc-prettier',
-        'coc-clangd',
-        'coc-jedi',
-        'coc-diagnostic',
-      }
+      require('config/coc')
     end
   },
-  'nvim-tree/nvim-web-devicons',
+  'pepo-le/win-ime-con.nvim',
+  'simeji/winresizer',
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -26,19 +17,26 @@ return {
       require('config/lualine')
     end
   },
-  'preservim/nerdtree',
+  {
+    'nvim-tree/nvim-tree.lua',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('config/nvim-tree')
+    end
+  },
   {
     'romgrk/barbar.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('config/barbar')
     end
   },
-  'rmagatti/auto-session',
+  {
+    'rmagatti/auto-session',
     config = function()
-      require("auto-session").setup {
-        log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
-      }
+      require('config/auto-session')
     end
+  },
+  'tpope/vim-fugitive',
 }
 

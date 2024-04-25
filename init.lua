@@ -1,20 +1,26 @@
 -- encoding
-vim.o.encofing = 'utf-8'
+vim.o.encoding = 'utf-8'
 vim.scriptencoding = 'utf-8'
 
 -- visual
-vim.o.ambiwidth = 'double'
+vim.o.ambiwidth = 'single'
+vim.o.shiftwidth = 0
+vim.o.softtabstop = -1
 vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
+if vim.bo.filetype == 'py' then
+  vim.bo.tabstop = 4
+end
 vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.smartindent = true
 
 vim.o.visualbell = true
 vim.o.number = true
+vim.o.cursorline = true
+vim.o.wrapscan = true
 vim.o.showmatch = true
 vim.o.matchtime = 1
+vim.cmd[[colorscheme torte]]
 
 -- search
 vim.o.incsearch = true
@@ -40,9 +46,4 @@ vim.api.nvim_set_keymap('n', 'gj', 'j', { noremap = true })
 vim.api.nvim_set_keymap('n', 'gk', 'k', { noremap = true })
 
 require('lazy_nvim')
-
-vim.api.nvim_set_var('loaded_netrw', 1)
-vim.api.nvim_set_var('loaded_netrwPlugin', 1)
-
-vim.api.nvim_set_keymap('n', '<C-t>', ':NERDTreeToggle<CR>', { noremap = true })
 
