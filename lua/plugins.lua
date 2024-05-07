@@ -18,10 +18,23 @@ return {
     end
   },
   {
-    'nvim-tree/nvim-tree.lua',
-    requires = { 'nvim-tree/nvim-web-devicons' },
+    'vim-denops/denops.vim',
     config = function()
-      require('config/nvim-tree')
+      require('config/denops')
+    end
+  },
+  {
+    'Shougo/ddu.vim',
+    dependencies = {
+      'vim-denops/denops.vim',
+      'Shougo/ddu-ui-ff',
+      'Shougo/ddu-source-file_rec',
+      'Shougo/ddu-kind-file',
+      'Shougo/ddu-filter-matcher_substring',
+      'uga-rosa/ddu-filter-converter_devicon',
+    },
+    config = function()
+      require('config/ddu')
     end
   },
   {
@@ -31,6 +44,7 @@ return {
       require('config/barbar')
     end
   },
+  'mhinz/vim-startify',
   {
     'rmagatti/auto-session',
     config = function()
