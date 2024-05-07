@@ -4,9 +4,8 @@ vim.fn['ddu#custom#patch_global']{
     ff = {
       split = 'floating',
       floatingBorder = 'rounded',
-      startFilter = true,
       filterSplitDirection = 'floating',
-      filterFloatingPosition = 'buttom',
+      filterFloatingPosition = 'bottom',
       prompt = '> ',
     },
   },
