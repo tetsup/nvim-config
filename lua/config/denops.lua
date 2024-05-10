@@ -5,5 +5,9 @@ local execute_cmd = function(cmd)
   return result
 end
 
-vim.g.denops_deno = execute_cmd('which deno')
+if vim.fn['has("win32")'] then
+  vim.g.denops_deno = execute_cmd('where deno')
+else
+  vim.g.denops_deno = execute_cmd('which deno')
+end
 

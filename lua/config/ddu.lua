@@ -16,6 +16,11 @@ vim.fn['ddu#custom#patch_global']{
       ignoreCase = true,
     },
   },
+  filterParams = {
+    matcher_substring = {
+      highlightMatched = 'Search',
+    },
+  },
 }
 
 vim.fn['ddu#custom#patch_local']('node-files', {
@@ -27,7 +32,12 @@ vim.fn['ddu#custom#patch_local']('node-files', {
   },
   sourceParams = {
     file_rec = {
-      ignoredDirectories = {'.git', 'node_modules'},
+      ignoredDirectories = {'.xine', '.espressif', '.git', 'node_modules'},
+    },
+  },
+  sourceOptions = {
+    file_rec = {
+      maxItems = 50,
     },
   },
 })
@@ -60,7 +70,7 @@ vim.fn['ddu#custom#patch_local']('whole-files', {
   },
   sourceOptions = {
     file_rec = {
-      maxItems = 50000,
+      maxItems = 50,
     },
   },
 })

@@ -8,8 +8,13 @@ return {
       require('config/coc')
     end
   },
-  'pepo-le/win-ime-con.nvim',
   'simeji/winresizer',
+  {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('config/treesitter')
+    end
+  },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -44,7 +49,12 @@ return {
       require('config/barbar')
     end
   },
-  'mhinz/vim-startify',
+  {
+    'mhinz/vim-startify',
+    config = function()
+      require('config/startify')
+    end
+  },
   {
     'rmagatti/auto-session',
     config = function()
