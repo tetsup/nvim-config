@@ -1,5 +1,5 @@
-vim.fn['ddu#custom#patch_global']{
-  ui = "ff",
+vim.fn['ddu#custom#patch_global'] {
+  ui = 'ff',
   uiParams = {
     ff = {
       split = 'floating',
@@ -11,8 +11,8 @@ vim.fn['ddu#custom#patch_global']{
   },
   sourceOptions = {
     _ = {
-      matchers = {'matcher_substring'},
-      converters = {'converter_devicon'},
+      matchers = { 'matcher_substring' },
+      converters = { 'converter_devicon' },
       ignoreCase = true,
     },
   },
@@ -24,7 +24,7 @@ vim.fn['ddu#custom#patch_global']{
 }
 
 vim.fn['ddu#custom#patch_local']('node-files', {
-  sources = {'file_rec'},
+  sources = { 'file_rec' },
   kindOptions = {
     file = {
       defaultAction = 'open',
@@ -32,19 +32,19 @@ vim.fn['ddu#custom#patch_local']('node-files', {
   },
   sourceParams = {
     file_rec = {
-      ignoredDirectories = {'.xine', '.espressif', '.git', 'node_modules'},
+      ignoredDirectories = { '.xine', '.espressif', '.git', 'node_modules' },
     },
   },
   sourceOptions = {
     file_rec = {
-      maxItems = 50,
+      maxItems = 1000,
     },
   },
 })
 vim.api.nvim_create_user_command('DduNodeFiles',
   function()
     vim.fn['ddu#start']({
-      name = "node-files",
+      name = 'node-files',
       sourceOptions = {
         file_rec = {
           path = vim.fn.getcwd()
@@ -57,7 +57,7 @@ vim.api.nvim_create_user_command('DduNodeFiles',
 vim.api.nvim_set_keymap('n', '<Leader>dt', ':DduNodeFiles<CR>', {})
 
 vim.fn['ddu#custom#patch_local']('whole-files', {
-  sources = {'file_rec'},
+  sources = { 'file_rec' },
   kindOptions = {
     file = {
       defaultAction = 'open',
@@ -70,7 +70,7 @@ vim.fn['ddu#custom#patch_local']('whole-files', {
   },
   sourceOptions = {
     file_rec = {
-      maxItems = 50,
+      maxItems = 1000,
     },
   },
 })
@@ -99,21 +99,21 @@ vim.api.nvim_create_user_command('DduItemAction',
 
 vim.api.nvim_create_user_command('DduItemNew',
   function()
-    vim.fn['ddu#ui#do_action']('itemAction', {name = 'newFile'})
+    vim.fn['ddu#ui#do_action']('itemAction', { name = 'newFile' })
   end,
   {}
 )
 
 vim.api.nvim_create_user_command('DduItemDelete',
   function()
-    vim.fn['ddu#ui#do_action']('itemAction', {name = 'delete'})
+    vim.fn['ddu#ui#do_action']('itemAction', { name = 'delete' })
   end,
   {}
 )
 
 vim.api.nvim_create_user_command('DduItemRename',
   function()
-    vim.fn['ddu#ui#do_action']('itemAction', {name = 'rename'})
+    vim.fn['ddu#ui#do_action']('itemAction', { name = 'rename' })
   end,
   {}
 )
@@ -136,12 +136,12 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'ddu-ff',
   callback = function()
     local opts = { noremap = true, silent = true, buffer = true }
-    vim.keymap.set({'n'}, 'q', ':DduQuit<CR>', opts)
-    vim.keymap.set({'n', 'i'}, '<CR>', ':DduItemAction<CR>', opts)
-    vim.keymap.set({'n'}, 'i', ':DduOpenFilter<CR>', opts)
-    vim.keymap.set({'n'}, 'n', ':DduItemNew<CR>', opts)
-    vim.keymap.set({'n'}, 'd', ':DduItemDelete<CR>', opts)
-    vim.keymap.set({'n'}, 'r', ':DduItemRename<CR>', opts)
+    vim.keymap.set({ 'n' }, 'q', ':DduQuit<CR>', opts)
+    vim.keymap.set({ 'n', 'i' }, '<CR>', ':DduItemAction<CR>', opts)
+    vim.keymap.set({ 'n' }, 'i', ':DduOpenFilter<CR>', opts)
+    vim.keymap.set({ 'n' }, 'n', ':DduItemNew<CR>', opts)
+    vim.keymap.set({ 'n' }, 'd', ':DduItemDelete<CR>', opts)
+    vim.keymap.set({ 'n' }, 'r', ':DduItemRename<CR>', opts)
   end
 })
 
@@ -149,9 +149,9 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'ddu-ff-filter',
   callback = function()
     local opts = { noremap = true, silent = true, buffer = true }
-    vim.keymap.set({'i'}, '<CR>', '<ESC>:close<CR>', opts)
-    vim.keymap.set({'n'}, '<CR>', ':close<CR>', opts)
-    vim.keymap.set({'n'}, 'q', ':close<CR>', opts)
-    vim.keymap.set({'n'}, '<ESC>', ':close<CR>', opts)
+    vim.keymap.set({ 'i' }, '<CR>', '<ESC>:close<CR>', opts)
+    vim.keymap.set({ 'n' }, '<CR>', ':close<CR>', opts)
+    vim.keymap.set({ 'n' }, 'q', ':close<CR>', opts)
+    vim.keymap.set({ 'n' }, '<ESC>', ':close<CR>', opts)
   end
 })
