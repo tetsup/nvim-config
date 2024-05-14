@@ -4,8 +4,8 @@ if (not status) then return end
 treesitter.setup {
   ensure_installed = {
     'vim',
-		'dockerfile',
-		'typescript',
+    'dockerfile',
+    'typescript',
     'tsx',
     'javascript',
     'json',
@@ -32,4 +32,3 @@ treesitter.setup {
     enable = true,
   },
 }
-
