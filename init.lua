@@ -3,13 +3,22 @@ vim.o.encoding = 'utf-8'
 vim.scriptencoding = 'utf-8'
 
 -- visual
-vim.o.ambiwidth = 'double'
+vim.o.ambiwidth = 'single'
 vim.o.shiftwidth = 0
 vim.o.softtabstop = -1
 vim.o.tabstop = 2
 vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.smartindent = true
+vim.o.list = true
+vim.opt.listchars = {
+  tab = '»-',
+  trail = '-',
+  extends = '»',
+  precedes = '«',
+  nbsp = '%',
+  eol = '↲',
+}
 
 vim.o.visualbell = true
 vim.o.number = true
@@ -17,19 +26,19 @@ vim.o.cursorline = true
 vim.o.wrapscan = true
 vim.o.showmatch = true
 vim.o.matchtime = 1
-vim.cmd[[colorscheme desert]]
+vim.cmd [[colorscheme desert]]
 
 -- search
 vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.hlsearch = true
-vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohl<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohl<CR>', { noremap = true, silent = true })
 
 -- manipulation
 vim.g.shellslash = true
 vim.g.mapleader = ' '
-vim.opt.clipboard:append{'unnamedplus'}
+vim.opt.clipboard:append { 'unnamedplus' }
 vim.o.ttimeout = true
 vim.o.ttimeoutlen = 50
 
@@ -40,4 +49,3 @@ vim.api.nvim_set_keymap('n', '<Down>', '5j', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Up>', '5k', { noremap = true })
 
 require('lazy_nvim')
-
