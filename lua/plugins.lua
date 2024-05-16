@@ -43,10 +43,10 @@ return {
     end
   },
   {
-    'romgrk/barbar.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    'j-morano/buffer_manager.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-      require('config/barbar')
+      require('config/buffer_manager')
     end
   },
   {
@@ -63,4 +63,3 @@ return {
   },
   'tpope/vim-fugitive',
 }
-
