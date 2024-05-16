@@ -45,7 +45,9 @@ vim.o.ttimeoutlen = 50
 vim.o.undofile = true
 vim.o.undodir = vim.fn.stdpath('cache') .. '/undo'
 
-vim.api.nvim_set_keymap('n', '<Down>', '5j', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Up>', '5k', { noremap = true })
+vim.api.nvim_set_keymap('n', 'j', '5gj', { noremap = true })
+vim.api.nvim_set_keymap('n', 'k', '5gk', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Left>', 'j', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Right>', 'k', { noremap = true })
 
 require('lazy_nvim')
