@@ -21,6 +21,7 @@ treesitter.setup {
     'php',
     'html',
     'python',
+    'vimdoc',
   },
   highlight = {
     enable = true,
