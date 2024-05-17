@@ -1,6 +1,5 @@
 {
   "auto-session": { "branch": "main", "commit": "3eb26b949e1b90798e84926848551046e2eb0721" },
-  "barbar.nvim": { "branch": "master", "commit": "283bceab39f549c5e5228212661750704fcfcd9e" },
   "buffer_manager.nvim": { "branch": "main", "commit": "fd36131b2b3e0f03fd6353ae2ffc88cf920b3bbb" },
   "coc.nvim": { "branch": "release", "commit": "ca6d569d0758ad58d5c3def72ac0e09545820991" },
   "ddu-filter-converter_devicon": { "branch": "main", "commit": "8bbf0a0457beb8defdd41abe0d6ea2fe877fa96c" },
@@ -16,6 +15,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "707b0dcf7641fa3a2aaad5053b215503f54f89aa" },
   "nvim-web-devicons": { "branch": "master", "commit": "45d0237c427baba8cd05e0ab26d30e2ee58c2c82" },
   "plenary.nvim": { "branch": "master", "commit": "08e301982b9a057110ede7a735dd1b5285eb341f" },
+  "vim": { "branch": "master", "commit": "28874a1e9d583eb0b1dfebb9191445b822812ea3" },
   "vim-fugitive": { "branch": "master", "commit": "dac8e5c2d85926df92672bf2afb4fc48656d96c7" },
   "vim-startify": { "branch": "master", "commit": "4e089dffdad46f3f5593f34362d530e8fe823dcf" },
   "winresizer": { "branch": "master", "commit": "9bd559a03ccec98a458e60c705547119eb5350f3" }

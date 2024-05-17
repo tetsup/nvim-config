@@ -26,7 +26,10 @@ vim.o.cursorline = true
 vim.o.wrapscan = true
 vim.o.showmatch = true
 vim.o.matchtime = 1
-vim.cmd [[colorscheme desert]]
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.pumblend = 0
+vim.cmd 'autocmd ColorScheme * highlight Normal ctermbg=none guibg=none'
 
 -- search
 vim.o.incsearch = true
@@ -47,7 +50,7 @@ vim.o.undodir = vim.fn.stdpath('cache') .. '/undo'
 
 vim.api.nvim_set_keymap('n', 'j', '5gj', { noremap = true })
 vim.api.nvim_set_keymap('n', 'k', '5gk', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Left>', 'j', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Right>', 'k', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Down>', 'j', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Up>', 'k', { noremap = true })
 
 require('lazy_nvim')

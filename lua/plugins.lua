@@ -62,4 +62,10 @@ return {
     end
   },
   'tpope/vim-fugitive',
+  {
+    'dracula/vim',
+    config = function()
+      vim.cmd [[colorscheme dracula]]
+    end
+  },
 }
