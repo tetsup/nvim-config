@@ -3,7 +3,6 @@ return {
   {
     'neoclide/coc.nvim',
     branch = 'release',
-    event = 'InsertEnter',
     config = function()
       require('config/coc')
     end
