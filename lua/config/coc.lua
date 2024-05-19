@@ -8,4 +8,6 @@ vim.g.coc_global_extensions = {
   'coc-clangd',
   'coc-jedi',
   'coc-diagnostic',
+  'coc-explorer',
 }
+vim.api.nvim_set_keymap('n', '<Leader>e', '<Cmd>CocCommand explorer<CR>', {})
