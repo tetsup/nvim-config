@@ -26,7 +26,6 @@ vim.o.cursorline = true
 vim.o.wrapscan = true
 vim.o.showmatch = true
 vim.o.matchtime = 1
-vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.pumblend = 0
 vim.cmd 'autocmd ColorScheme * highlight Normal ctermbg=none guibg=none'
