@@ -7,6 +7,22 @@ return {
       require('config/coc')
     end
   },
+  {
+    'williamboman/mason.nvim',
+    config = function()
+      require('mason').setup()
+    end
+  },
+  {
+    'mfussenegger/nvim-dap',
+    dependencies = {
+      'rcarriga/nvim-dap-ui',
+      'nvim-neotest/nvim-nio',
+    },
+    config = function()
+      require('config/nvim-dap')
+    end
+  },
   'simeji/winresizer',
   {
     'nvim-treesitter/nvim-treesitter',
