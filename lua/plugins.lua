@@ -83,4 +83,5 @@ return {
       vim.cmd [[colorscheme dracula]]
     end
   },
+  'h-hg/fcitx.nvim',
 }
