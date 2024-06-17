@@ -38,26 +38,6 @@ return {
     end
   },
   {
-    'vim-denops/denops.vim',
-    config = function()
-      require('config/denops')
-    end
-  },
-  {
-    'Shougo/ddu.vim',
-    dependencies = {
-      'vim-denops/denops.vim',
-      'Shougo/ddu-ui-ff',
-      'Shougo/ddu-source-file_rec',
-      'Shougo/ddu-kind-file',
-      'Shougo/ddu-filter-matcher_substring',
-      'uga-rosa/ddu-filter-converter_devicon',
-    },
-    config = function()
-      require('config/ddu')
-    end
-  },
-  {
     'j-morano/buffer_manager.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
