@@ -51,5 +51,8 @@ vim.api.nvim_set_keymap('n', 'j', '5gj', { noremap = true })
 vim.api.nvim_set_keymap('n', 'k', '5gk', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Down>', 'j', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Up>', 'k', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-J>', '<C-W>W', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-K>', '<C-W><C-W>', { noremap = true })
 
+require('terminal')
 require('lazy_nvim')
