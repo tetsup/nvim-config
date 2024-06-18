@@ -8,6 +8,17 @@ return {
     end
   },
   {
+    'nvim-zh/colorful-winsep.nvim',
+    config = function()
+      require('colorful-winsep').setup({
+        hi = {
+          bg = '',
+          fg = '#ff1eb2',
+        }
+      })
+    end
+  },
+  {
     'williamboman/mason.nvim',
     config = function()
       require('mason').setup()
