@@ -26,9 +26,12 @@ vim.o.cursorline = true
 vim.o.wrapscan = true
 vim.o.showmatch = true
 vim.o.matchtime = 1
+vim.o.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.pumblend = 0
 vim.cmd 'autocmd ColorScheme * highlight Normal ctermbg=none guibg=none'
+vim.cmd 'autocmd ColorScheme * highlight VertSplit ctermbg=none guibg=none guifg=#6272a4'
+vim.cmd 'autocmd ColorScheme * highlight WinSeparator ctermbg=none guibg=none guifg=#6272a4'
 
 -- search
 vim.o.incsearch = true
