@@ -1,4 +1,5 @@
 vim.g.coc_global_extensions = {
+  'coc-python',
   'coc-json',
   'coc-tsserver',
   'coc-css',
