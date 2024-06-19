@@ -10,5 +10,6 @@ vim.g.coc_global_extensions = {
   'coc-jedi',
   'coc-diagnostic',
   'coc-explorer',
+  'coc-lists',
   'coc-rust-analyzer',
 }
