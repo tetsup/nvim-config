@@ -59,3 +59,4 @@ vim.api.nvim_set_keymap('n', '<C-K>', '<C-W><C-W>', { noremap = true })
 
 require('terminal')
 require('lazy_nvim')
+require('windows')

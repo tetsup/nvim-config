@@ -26,5 +26,3 @@ dap.configurations = {
     },
   },
 }
-
-vim.api.nvim_set_keymap('n', '<Leader>d', ':lua require("dapui").toggle()<CR>', { noremap = true })
