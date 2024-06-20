@@ -1,5 +1,4 @@
 vim.g.coc_global_extensions = {
-  'coc-python',
   'coc-json',
   'coc-tsserver',
   'coc-css',
@@ -7,7 +6,7 @@ vim.g.coc_global_extensions = {
   'coc-sh',
   'coc-prettier',
   'coc-clangd',
-  'coc-jedi',
+  'coc-pyright',
   'coc-diagnostic',
   'coc-explorer',
   'coc-lists',
