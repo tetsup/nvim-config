@@ -8,6 +8,12 @@ return {
     end
   },
   {
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require('config/toggleterm')
+    end
+  },
+  {
     'nvim-zh/colorful-winsep.nvim',
     config = function()
       require('colorful-winsep').setup()

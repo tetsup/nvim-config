@@ -14,7 +14,7 @@ local close_git = function()
 end
 
 local open_explorer = function()
-  vim.cmd('CocCommand explorer --no-toggle')
+  vim.cmd('CocCommand explorer --no-toggle --sources=buffer+,file+')
 end
 
 local close_explorer = function()
@@ -22,7 +22,7 @@ local close_explorer = function()
 end
 
 local open_dap = function()
-  require('dapui').open()
+  require('dapui').open({ reset = true })
 end
 
 local close_dap = function()
@@ -33,36 +33,60 @@ vim.api.nvim_create_user_command('ModeGit',
   function()
     close_explorer()
     close_dap()
+    vim.cmd('CloseBottomTerminals')
     open_git()
-  end
-  , {}
+  end,
+  {}
 )
 vim.api.nvim_create_user_command('ModeExplorer',
   function()
     close_git()
     close_dap()
+    vim.cmd('CloseBottomTerminals')
     open_explorer()
-  end
-  , {}
+  end,
+  {}
 )
 vim.api.nvim_create_user_command('ModeDap',
   function()
     close_git()
     close_explorer()
+    vim.cmd('CloseBottomTerminals')
     open_dap()
-  end
-  , {}
+  end,
+  {}
 )
 vim.api.nvim_create_user_command('ModePlain',
   function()
     close_git()
     close_explorer()
     close_dap()
-  end
-  , {}
+    vim.cmd('CloseBottomTerminals')
+  end,
+  {}
+)
+vim.api.nvim_create_user_command('ModeTwoBottomTerminals',
+  function()
+    close_git()
+    close_explorer()
+    close_dap()
+    vim.cmd('OpenTwoBottomTerminals')
+  end,
+  {}
+)
+vim.api.nvim_create_user_command('ModeThreeBottomTerminals',
+  function()
+    close_git()
+    close_explorer()
+    close_dap()
+    vim.cmd('OpenThreeBottomTerminals')
+  end,
+  {}
 )
 vim.api.nvim_set_keymap('n', '<Leader>g', '<Cmd>ModeGit<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>e', '<Cmd>ModeExplorer<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>d', '<Cmd>ModeDap<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>tt', '<Cmd>ModeTwoBottomTerminals<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>tr', '<Cmd>ModeThreeBottomTerminals<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader><Leader>', '<Cmd>ModePlain<CR>', { noremap = true })
 vim.api.nvim_create_autocmd('VimEnter', { callback = function() vim.cmd('ModeExplorer') end })
