@@ -1,5 +1,3 @@
-vim.api.nvim_set_keymap('n', 'tt', '<Cmd>belowright new<CR><Cmd>terminal<CR>', { noremap = true })
-vim.api.nvim_set_keymap('t', '<C-T>', '<Cmd>belowright vnew<CR><Cmd>terminal<CR>', { noremap = true })
 vim.api.nvim_set_keymap('t', '<ESC>', '<C-\\><C-n>', { noremap = true })
 vim.api.nvim_set_keymap('t', '<C-W>n', '<cmd>new<cr>', { noremap = true })
 vim.api.nvim_set_keymap('t', '<C-W><C-N>', '<cmd>new<cr>', { noremap = true })
@@ -46,6 +44,8 @@ vim.api.nvim_set_keymap('t', '<C-W>-', '<cmd>wincmd -<cr>', { noremap = true })
 vim.api.nvim_set_keymap('t', '<C-W>+', '<cmd>wincmd +<cr>', { noremap = true })
 vim.api.nvim_set_keymap('t', '<C-W>z', '<cmd>pclose<cr>', { noremap = true })
 vim.api.nvim_set_keymap('t', '<C-W><C-Z>', '<cmd>pclose<cr>', { noremap = true })
+vim.api.nvim_set_keymap('t', '<C-J>', '<cmd>wincmd W<cr>', { noremap = true })
+vim.api.nvim_set_keymap('t', '<C-K>', '<cmd>wincmd w<cr>', { noremap = true })
 vim.cmd 'autocmd TermOpen * :startinsert'
 vim.cmd 'autocmd TermOpen * setlocal norelativenumber'
 vim.cmd 'autocmd TermOpen * setlocal nonumber'
