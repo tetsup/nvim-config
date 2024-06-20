@@ -10,12 +10,7 @@ return {
   {
     'nvim-zh/colorful-winsep.nvim',
     config = function()
-      require('colorful-winsep').setup({
-        hi = {
-          bg = '',
-          fg = '#ff1eb2',
-        }
-      })
+      require('colorful-winsep').setup()
     end
   },
   {

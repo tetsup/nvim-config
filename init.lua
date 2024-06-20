@@ -30,8 +30,9 @@ vim.o.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.pumblend = 0
 vim.cmd 'autocmd ColorScheme * highlight Normal ctermbg=none guibg=none'
-vim.cmd 'autocmd ColorScheme * highlight VertSplit ctermbg=none guibg=none guifg=#6272a4'
-vim.cmd 'autocmd ColorScheme * highlight WinSeparator ctermbg=none guibg=none guifg=#6272a4'
+vim.cmd 'autocmd ColorScheme dracula highlight VertSplit ctermbg=none guibg=none guifg=#6272a4'
+vim.cmd 'autocmd ColorScheme dracula highlight WinSeparator ctermbg=none guibg=none guifg=#6272a4'
+vim.cmd 'autocmd ColorScheme dracula highlight NvimSeparator ctermbg=none guibg=none guifg=#ff1eb2'
 
 -- search
 vim.o.incsearch = true
