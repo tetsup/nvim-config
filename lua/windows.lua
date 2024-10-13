@@ -22,11 +22,23 @@ local close_explorer = function()
 end
 
 local open_dap = function()
-  require('dapui').open({ reset = true })
+  require('dapui').open()
+  vim.api.nvim_set_keymap('n', '<F1>', [[<Cmd>lua require('dap').toggle_breakpoint()<CR>]], { noremap = true })
+  vim.api.nvim_set_keymap('n', '<F2>', [[<Cmd>lua require('dap').continue()<CR>]], { noremap = true })
+  vim.api.nvim_set_keymap('n', '<F3>', [[<Cmd>lua require('dap').step_over()<CR>]], { noremap = true })
+  vim.api.nvim_set_keymap('n', '<F4>', [[<Cmd>lua require('dap').step_into()<CR>]], { noremap = true })
+  vim.api.nvim_set_keymap('n', '<F5>', [[<Cmd>lua require('dap').step_out()<CR>]], { noremap = true })
+  vim.api.nvim_set_keymap('n', '<2-LeftMouse>', [[<Cmd>lua require('dap').eval()<CR>]], { noremap = true })
 end
 
 local close_dap = function()
   require('dapui').close()
+  vim.api.nvim_set_keymap('n', '<F1>', '<F1>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<F2>', '<F2>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<F3>', '<F3>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<F4>', '<F4>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<F5>', '<F5>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<2-LeftMouse>', '<2-LeftMouse>', { noremap = true })
 end
 
 vim.api.nvim_create_user_command('ModeGit',
