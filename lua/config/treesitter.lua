@@ -22,6 +22,7 @@ treesitter.setup {
     'html',
     'python',
     'vimdoc',
+    'gitcommit',
   },
   highlight = {
     enable = true,

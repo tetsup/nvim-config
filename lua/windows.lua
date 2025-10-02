@@ -13,14 +13,6 @@ local close_git = function()
   end
 end
 
-local open_explorer = function()
-  vim.cmd('CocCommand explorer --no-toggle --sources=buffer+,file+')
-end
-
-local close_explorer = function()
-  vim.cmd('CocCommand explorer --quit')
-end
-
 local open_dap = function()
   require('dapui').open()
   vim.api.nvim_set_keymap('n', '<F1>', [[<Cmd>lua require('dap').toggle_breakpoint()<CR>]], { noremap = true })
@@ -43,7 +35,6 @@ end
 
 vim.api.nvim_create_user_command('ModeGit',
   function()
-    close_explorer()
     close_dap()
     vim.cmd('CloseBottomTerminals')
     open_git()
@@ -55,14 +46,12 @@ vim.api.nvim_create_user_command('ModeExplorer',
     close_git()
     close_dap()
     vim.cmd('CloseBottomTerminals')
-    open_explorer()
   end,
   {}
 )
 vim.api.nvim_create_user_command('ModeDap',
   function()
     close_git()
-    close_explorer()
     vim.cmd('CloseBottomTerminals')
     open_dap()
   end,
@@ -71,16 +60,22 @@ vim.api.nvim_create_user_command('ModeDap',
 vim.api.nvim_create_user_command('ModePlain',
   function()
     close_git()
-    close_explorer()
     close_dap()
     vim.cmd('CloseBottomTerminals')
+  end,
+  {}
+)
+vim.api.nvim_create_user_command('ModeOneBottomTerminals',
+  function()
+    close_git()
+    close_dap()
+    vim.cmd('OpenOneBottomTerminals')
   end,
   {}
 )
 vim.api.nvim_create_user_command('ModeTwoBottomTerminals',
   function()
     close_git()
-    close_explorer()
     close_dap()
     vim.cmd('OpenTwoBottomTerminals')
   end,
@@ -89,16 +84,23 @@ vim.api.nvim_create_user_command('ModeTwoBottomTerminals',
 vim.api.nvim_create_user_command('ModeThreeBottomTerminals',
   function()
     close_git()
-    close_explorer()
     close_dap()
     vim.cmd('OpenThreeBottomTerminals')
   end,
   {}
 )
+vim.api.nvim_create_user_command('ModeNeotest',
+  function()
+    close_git()
+    close_dap()
+    vim.cmd('CloseBottomTerminals')
+  end,
+  {}
+)
 vim.api.nvim_set_keymap('n', '<Leader>g', '<Cmd>ModeGit<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>e', '<Cmd>ModeExplorer<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>d', '<Cmd>ModeDap<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>to', '<Cmd>ModeOneBottomTerminals<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>tt', '<Cmd>ModeTwoBottomTerminals<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>tr', '<Cmd>ModeThreeBottomTerminals<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>ts', '<Cmd>ModeNeotest<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader><Leader>', '<Cmd>ModePlain<CR>', { noremap = true })
-vim.api.nvim_create_autocmd('VimEnter', { callback = function() vim.cmd('ModeExplorer') end })

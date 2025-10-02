@@ -76,4 +76,35 @@ return {
     end
   },
   'h-hg/fcitx.nvim',
+  {
+    'mpas/marp-nvim',
+    config = function()
+      require('config/marp')
+    end
+  },
+  'kassio/neoterm',
+  'rcarriga/nvim-notify',
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('config/telescope')
+    end
+  },
+  --[[
+  {
+    'nvim-neotest/neotest',
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-jest",
+      "nvim-neotest/neotest-plenary",
+    },
+    config = function()
+      require('config/neotest')
+    end
+  },
+--]]
 }

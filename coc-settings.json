@@ -1,9 +1,25 @@
 {
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/17.0.3/clangd_17.0.3/bin/clangd",
-  "[css][html][markdown][typescript][typescriptreact][javascript][javascriptreact][json][graphql]": {
+  "[css][html][markdown][typescript][typescriptreact][javascript][javascriptreact][json][graphql][lua]": {
     "coc.preferences.formatOnSave": true
   },
   "Lua.diagnostics.globals": ["vim"],
   "explorer.icon.enableNerdfont": true,
-  "explorer.file.showHiddenFiles": true
+  "explorer.file.showHiddenFiles": true,
+  "floatFactory.floatConfig": {
+    "border": true
+  },
+  "testing.enable": true,
+  "testing.enableWorkspaceDiagnostics": true,
+  "testing.server.path": "testing-language-server",
+  "testing.trace.server": "verbose",
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "terraform-vars"],
+      "initializationOptions": {},
+      "settings": { "terraform.format": { "enable": true } }
+    }
+  }
 }

@@ -44,7 +44,6 @@ vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohl<CR>', { noremap = true, silent
 -- manipulation
 vim.g.shellslash = true
 vim.g.mapleader = ' '
-vim.opt.clipboard:append { 'unnamedplus' }
 vim.o.ttimeout = true
 vim.o.ttimeoutlen = 50
 
@@ -57,7 +56,18 @@ vim.api.nvim_set_keymap('n', '<Down>', 'j', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Up>', 'k', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-J>', '<C-W>W', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-K>', '<C-W><C-W>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-H>', '<Cmd>bprev<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-L>', '<Cmd>bnext<CR>', { noremap = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  callback = function()
+    -- Jest用に makeprg を Lua 呼び出しに変更
+    vim.opt_local.makeprg = "lua require'makeprg'.run_jest_make()"
+  end,
+})
 
 require('terminal')
 require('lazy_nvim')
 require('windows')
+require('clipboard')
