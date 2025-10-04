@@ -10,7 +10,7 @@ end
 
 local ssh_client = function()
   if vim.env.TMUX then
-    return vim.system({ 'tmux', 'show-env', 'SSH_CONNECTION' }):wait().stdout:match('[0-9\\.]+')
+    return vim.system({ 'tmux', 'show-env', 'SSH_CONNECTION' }):wait().stdout:match('[0-9\\.]+') or 'localhost'
   elseif vim.env.SSH_CONNECTION then
     return vim.env.SSH_CONNECTION:match('[0-9\\.]+') or 'localhost'
   else
