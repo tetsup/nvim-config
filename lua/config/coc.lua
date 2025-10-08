@@ -1,4 +1,4 @@
-vim.g.coc_global_extensions = {
+local extensions = {
   'coc-json',
   'coc-tsserver',
   'coc-css',
@@ -16,6 +16,68 @@ vim.g.coc_global_extensions = {
   'coc-testing-ls',
 }
 
+local function is_interactive()
+  return vim.fn.has("nvim") == 1 and not vim.fn.has("gui_running") == 0 and vim.fn.has("ttyin") == 1
+end
+
+local function sync()
+  if is_interactive() then
+    return ''
+  else
+    return '-sync '
+  end
+end
+
+local function ensure_extensions()
+  vim.notify('start coc extension installation')
+  local ok, stats = pcall(vim.fn.CocAction, "extensionStats")
+  if not ok or type(stats) ~= "table" then
+    vim.notify("Failed to get Coc extension stats; installing all.", vim.log.levels.WARN)
+    stats = {}
+  end
+
+  local installed = {}
+  for _, s in ipairs(stats) do
+    installed[s.id] = s
+  end
+
+  local to_install = {}
+  local to_update = {}
+
+  for _, ext in ipairs(extensions) do
+    local st = installed[ext]
+    if not st then
+      table.insert(to_install, ext)
+    elseif st.state == "outdated" or st.version ~= st.latestVersion then
+      table.insert(to_update, ext)
+    end
+  end
+  if #to_install > 0 then
+    vim.cmd("CocInstall " .. sync() .. table.concat(to_install, " "))
+  end
+  if #to_update > 0 then
+    vim.cmd("CocUpdate " .. sync() .. table.concat(to_update, " "))
+  end
+  vim.notify(string.format(
+    "Coc extensions: installed=%d, updated=%d",
+    #to_install,
+    #to_update
+  ))
+end
+
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "CocNvimInit",
+  callback = function()
+    ensure_extensions()
+  end,
+})
+vim.api.nvim_create_user_command("AutoCocUpdate",
+  function()
+    ensure_extensions()
+  end,
+  {}
+)
 vim.api.nvim_create_user_command('OpenFloatingExplorer',
   function()
     vim.cmd(

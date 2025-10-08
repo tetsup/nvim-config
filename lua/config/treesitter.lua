@@ -24,6 +24,7 @@ treesitter.setup {
     'vimdoc',
     'gitcommit',
   },
+  sync_install = true,
   highlight = {
     enable = true,
   },
