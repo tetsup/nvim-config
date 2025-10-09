@@ -51,6 +51,12 @@ RUN nvm install --lts \
     && ln -s ${NODE_PATH/node/npm} /usr/bin/npm \
     && ln -s ${NODE_PATH/node/npx} /usr/bin/npx
 
+ENV PATH=$PATH:/root/.cargo/bin
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable \
+    && rustup install stable \
+    && cargo install testing-language-server \
+    && cargo install testing-ls-adapter
+
 RUN NVIM=nvim-linux-$(cat /dl_arch) \
     && wget https://github.com/neovim/neovim/releases/download/stable/${NVIM}.tar.gz \
     && tar -zxvf ${NVIM}.tar.gz \
