@@ -74,7 +74,8 @@ jobs:
           set -euo pipefail
           image="${{ vars.DOCKERHUB_NAMESPACE }}/${{ vars.IMAGE_NAME }}"
           tag="${{ github.sha }}"
-          args=$(find ./partials -type f -name 'digest.txt' -exec awk '{print "${image}@"$1}' {} \; | tr '\n' ' ')
+          - name: Generate manifest args
+          args=$(find ./partials -type f -name 'digest.txt' -exec awk -v img="$image" '{print img "@" $1}' {} + | tr '\n' ' ')
           echo ${args}
           docker manifest create ${image}:${tag} $args
           docker manifest create ${image}:latest $args
