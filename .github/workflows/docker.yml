@@ -59,10 +59,13 @@ jobs:
     outputs:
       all: ${{ steps.combine.outputs.all }}
     steps:
+
       - name: Download all digests
         uses: actions/download-artifact@v4
         with:
+          pattern: digest-*
           path: ./partials
+          merge-multiple: true
 
       - name: Combine digests into JSON
         id: combine
