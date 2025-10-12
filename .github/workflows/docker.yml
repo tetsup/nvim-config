@@ -61,7 +61,7 @@ jobs:
         with:
           pattern: platform-*
           path: ./partials
-          merge-multiple: true
+          merge-multiple: false
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -74,7 +74,7 @@ jobs:
           set -euo pipefail
           image="${{ vars.DOCKERHUB_NAMESPACE }}/${{ vars.IMAGE_NAME }}"
           tag="${{ github.sha }}"
-          args=$(cat $(find . -type f -name 'digest.txt') | tr '\n' ' ')
+          args=$(find ./partials -type f -name 'digest.txt' -exec awk '{print "${image}@"$1}' {} \; | tr '\n' ' ')
           echo ${args}
           docker manifest create ${image}:${tag} $args
           docker manifest create ${image}:latest $args
