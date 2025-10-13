@@ -35,7 +35,9 @@ ENV PYENV_ROOT=/usr/local/pyenv
 ENV PATH="${PYENV_ROOT}/bin:${PYENV_ROOT}/shims:${PATH}"
 RUN git clone https://github.com/pyenv/pyenv.git ${PYENV_ROOT} \
     && pyenv install -l | grep -E "^\s*(3\.[0-9]+\.[0-9]+)$" | tail -1 | xargs pyenv install \
-    && pyenv global $(pyenv versions --bare | tail -1)
+    && pyenv global $(pyenv versions --bare | tail -1) \
+    && rm -rf ~/.pyenv/cache/*
+
 
 ENV NVM_DIR=/usr/local/nvm
 RUN mkdir -p $NVM_DIR \
@@ -55,7 +57,8 @@ ENV PATH=$PATH:/root/.cargo/bin
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain stable \
     && rustup install stable \
     && cargo install testing-language-server \
-    && cargo install testing-ls-adapter
+    && cargo install testing-ls-adapter \
+    && rm -rf ~/.cargo/registry/cache
 
 RUN NVIM=nvim-linux-$(cat /dl_arch) \
     && wget https://github.com/neovim/neovim/releases/download/stable/${NVIM}.tar.gz \
